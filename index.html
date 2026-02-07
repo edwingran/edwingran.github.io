@@ -1,57 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Edwin Granada</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portafolio profesional de Edwin Granada - Ingeniero Físico y desarrollador especializado en automatización, análisis de datos y desarrollo web">
+    <meta name="keywords" content="Edwin Granada, desarrollador Python, automatización, FastAPI, análisis de datos, portafolio">
+    <title>Edwin Granada - Ingeniero Físico & Desarrollador</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
+    <!-- Enlace a CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <h1>John Edwin Granada</h1>
-    <p>Automation & Python Developer | Physics Engineer</p>
-
-    <div class="links">
-        <a href="https://github.com/edwingran" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/edwingranada/" target="_blank">LinkedIn</a>
+<!-- Navegación -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">EG</div>
+        <ul class="nav-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-</header>
+</nav>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        Physics Engineer with experience in industrial automation and electrical systems.
-        Currently focused on Python, data automation, and backend development.
-        Passionate about building practical solutions and improving processes through software.
-    </p>
+<!-- Hero Section -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <div class="hero-profile">
+            <img src="images/edwin_photo.png" alt="Edwin Granada - Perfil Profesional" class="hero-image">
+        </div>
+        <h1 class="hero-title">Edwin Granada</h1>
+        <h2 class="hero-subtitle">Ingeniero Físico & Desarrollador</h2>
+        <p class="hero-description">
+            Especializado en automatización industrial, análisis de datos y desarrollo web con Python, FastAPI y tecnologías modernas.
+        </p>
+        <div class="hero-buttons">
+            <a href="https://github.com/edwingran" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/edwingranada/" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 </section>
 
-<section>
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3>Automation Report</h3>
-        <p>Python project that processes Excel sales data and generates automated reports.</p>
-        <a href="https://github.com/edwingran/python-data-automation" target="_blank">View on GitHub</a>
+<!-- Sobre Mí Section -->
+<section id="sobre-mi" class="about">
+    <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Como Ingeniero Físico con experiencia en entornos industriales, he desarrollado una sólida base en automatización y sistemas eléctricos. Actualmente, estoy enfocado en transicionar hacia el desarrollo de software, especializándome en Python, FastAPI y el análisis de datos.
+                </p>
+                <p>
+                    Mi experiencia en automatización industrial me ha permitido entender la importancia de crear soluciones eficientes y escalables. Me apasiona desarrollar proyectos prácticos que resuelvan problemas reales, desde el procesamiento automatizado de datos hasta la creación de APIs robustas.
+                </p>
+                <p>
+                    Busco oportunidades donde pueda combinar mi background técnico con mis habilidades de desarrollo para crear innovadoras soluciones tecnológicas.
+                </p>
+            </div>
+        </div>
     </div>
-
-    <div class="project">
-        <h3>FastAPI Login System</h3>
-        <p>REST API with authentication, frontend integration and database handling.</p>
-        <a href="https://github.com/edwingran" target="_blank">View on GitHub</a>
-    </div>
-
 </section>
 
-<section>
-    <h2>Technologies</h2>
-    <p>Python • Pandas • FastAPI • HTML • CSS • JavaScript • SQL</p>
+<!-- Proyectos Section -->
+<section id="proyectos" class="projects">
+    <div class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects-grid">
+            <!-- Proyecto 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-chart-line project-icon"></i>
+                    <h3 class="project-title">Automatización de Reportes en Python</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Sistema completo para el procesamiento automático de archivos Excel, análisis de datos con pandas y generación de reportes personalizados. Ideal para automatizar tareas repetitivas de análisis de datos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">Automatización</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/edwingran/python-data-automation" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Repositorio
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-server project-icon"></i>
+                    <h3 class="project-title">API de Login con FastAPI</h3>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        API REST completa con sistema de autenticación, registro de usuarios, validación con Pydantic e integración con frontend HTML, CSS y JavaScript. Incluye configuración CORS y buenas prácticas de seguridad.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pydantic</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/edwingran" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Repositorio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<footer>
-    <p>© 2026 John Edwin Granada</p>
+<!-- Habilidades Section -->
+<section id="habilidades" class="skills">
+    <div class="container">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 class="skill-category-title">Lenguajes de Programación</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <span class="skill-name">Python</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span class="skill-name">HTML</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <span class="skill-name">CSS</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js skill-icon"></i>
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="skill-category-title">Frameworks y Herramientas</h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="fas fa-bolt skill-icon"></i>
+                        <span class="skill-name">FastAPI</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <span class="skill-name">Pandas</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <span class="skill-name">Git/GitHub</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-level">
+                            <div class="skill-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="skill-category-title">Áreas de Especialización</h3>
+                <div class="specialization-list">
+                    <div class="specialization-item">
+                        <i class="fas fa-cogs"></i>
+                        <span>Automatización Industrial</span>
+                    </div>
+                    <div class="specialization-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Análisis de Datos</span>
+                    </div>
+                    <div class="specialization-item">
+                        <i class="fas fa-server"></i>
+                        <span>Desarrollo Backend</span>
+                    </div>
+                    <div class="specialization-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Desarrollo Web</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto Section -->
+<section id="contacto" class="contact">
+    <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-content">
+            <p class="contact-text">
+                ¿Buscas un desarrollador con enfoque en Python, automatización y desarrollo web?<br>
+                Estoy abierto a nuevas oportunidades. 
+                <br>
+                Puedes contactarme a través de mis redes profesionales.
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/edwingran" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/edwingran</span>
+                </a>
+                <a href="https://www.linkedin.com/in/edwingranada/" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/edwingranada</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Edwin Granada. Todos los derechos reservados.</p>
+        <p class="footer-subtitle">Ingeniero Físico & Desarrollador</p>
+    </div>
 </footer>
+
+<!-- Enlace a JavaScript -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
