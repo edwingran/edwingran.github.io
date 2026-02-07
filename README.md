@@ -1,4 +1,4 @@
-# Portafolio Profesional - Edwin Granada
+# Portafolio - Edwin Granada
 
 Un portafolio web moderno, minimalista y elegante diseñado para showcase profesional de Edwin Granada, Ingeniero Físico y Desarrollador especializado en automatización, análisis de datos y desarrollo web.
 
