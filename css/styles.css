@@ -377,6 +377,21 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Special layout for frontend projects to ensure 2x2 grid */
+.frontend-projects .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .frontend-projects .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-card {
@@ -475,6 +490,12 @@ section {
 .project-link:hover {
     color: var(--color-accent-light);
     transform: translateX(5px);
+}
+
+/* ----- Frontend Projects Section ----- */
+.frontend-projects {
+    background: var(--color-primary);
+    padding: var(--spacing-xl) 0;
 }
 
 /* ----- Skills Section ----- */
