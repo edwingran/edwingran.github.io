@@ -38,6 +38,8 @@ function initPortfolio() {
     setupScrollEffects();
     setupAnimations();
     setupSmoothScroll();
+    setupTypingEffect();
+    addParticleEffect();
     console.log('🚀 Portafolio de Edwin Granada inicializado');
 }
 
@@ -270,43 +272,135 @@ window.addEventListener('scroll', optimizedScrollHandler);
 // ===================================
 
 /**
- * Agregar efecto de partículas de fondo (opcional)
- * Esta función puede ser activada si se desea un efecto visual adicional
+ * Particle animation for hero background
  */
 function addParticleEffect() {
-    // Implementación opcional de efecto de partículas
-    // Puede ser agregado en el futuro para mayor impacto visual
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    function resizeCanvas() {
+        const hero = canvas.parentElement;
+        canvas.width = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', debounce(resizeCanvas, 200));
+    
+    const particleCount = Math.min(60, Math.floor(canvas.width * canvas.height / 15000));
+    
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.4;
+            this.speedY = (Math.random() - 0.5) * 0.4;
+            this.opacity = Math.random() * 0.4 + 0.1;
+            // Mix of cyan and blue tones
+            const colors = [
+                { r: 0, g: 245, b: 212 },   // neon cyan
+                { r: 59, g: 130, b: 246 },   // accent blue
+                { r: 96, g: 165, b: 250 },   // light blue
+                { r: 178, g: 75, b: 243 }    // neon purple
+            ];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+    
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+    
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 120) {
+                    const opacity = (1 - distance / 120) * 0.12;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(0, 245, 212, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        
+        drawConnections();
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    animate();
 }
 
 /**
- * Modo oscuro/claro toggle (opcional)
- * Aunque el diseño ya es oscuro, esta función permite futuras personalizaciones
- */
-function setupThemeToggle() {
-    // Implementación opcional de toggle de tema
-    // Puede ser útil para futuras actualizaciones
-}
-
-/**
- * Animación de escritura para el hero title (opcional)
+ * Typing animation for the hero title
  */
 function setupTypingEffect() {
     const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let index = 0;
-        
-        const typeWriter = () => {
-            if (index < text.length) {
-                heroTitle.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        setTimeout(typeWriter, 500);
-    }
+    if (!heroTitle) return;
+    
+    const text = heroTitle.textContent.trim();
+    heroTitle.innerHTML = '<span class="typing-cursor">&nbsp;</span>';
+    let index = 0;
+    
+    const typeWriter = () => {
+        if (index < text.length) {
+            // Insert character before cursor
+            const cursor = heroTitle.querySelector('.typing-cursor');
+            const charSpan = document.createTextNode(text.charAt(index));
+            heroTitle.insertBefore(charSpan, cursor);
+            index++;
+            setTimeout(typeWriter, 80);
+        } else {
+            // Remove cursor after typing is done (with a small delay)
+            setTimeout(() => {
+                const cursor = heroTitle.querySelector('.typing-cursor');
+                if (cursor) cursor.remove();
+            }, 2000);
+        }
+    };
+    
+    // Start typing after hero fadeIn animation
+    setTimeout(typeWriter, 1200);
 }
 
 // Exportar funciones para uso externo si es necesario
